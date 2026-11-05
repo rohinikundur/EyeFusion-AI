@@ -1,0 +1,19 @@
+# Render Blueprint Specification for EyeFusion-AI Backend
+services:
+  - type: web
+    name: eyefusion-ai-backend
+    runtime: python
+    region: oregon # or frankfurt, ohio, singapore
+    plan: standard # Minimum 2GB RAM required for TensorFlow + EfficientNetB1 + InceptionV3
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "python -m uvicorn backend.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.14
+      - key: CORS_ORIGINS
+        value: "https://eyefusion-ai.vercel.app" # Update with your Vercel production domain
+      - key: CORS_ORIGIN_REGEX
+        value: "https://.*\\.vercel\\.app"
+      - key: MODEL_DOWNLOAD_URL
+        sync: false # Set via Render dashboard to your GitHub Release / Hugging Face model URL

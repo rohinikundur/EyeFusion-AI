@@ -1,0 +1,70 @@
+# ==========================================
+# EyeFusion-AI Root .gitignore
+# ==========================================
+
+# Python & Testing Caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+
+# Python Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Node.js & Frontend Build Outputs
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+dist-ssr/
+frontend/dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.vite/
+.vite-temp/
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.sublime-workspace
+*.sublime-project
+
+# Temporary / Scratch Artifacts
+scratch/
+*.tmp
+*.bak
+
+# Note on Large Model File (models/eyefusion_b1_inceptionv3_acaf.keras - 142.28 MB):
+# If using Git LFS: Leave untracked here and track via .gitattributes
+# If using External Model Hosting (Hugging Face / GitHub Release / S3):
+# Uncomment the line below to prevent Git push failures:
+# models/*.keras
+
+# Trained model weights (stored externally)
+models/*.keras
